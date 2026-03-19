@@ -52,7 +52,10 @@ function Navbar() {
           </a>
         </li>
       </ul>
-      <Button asChild variant="outline" className="hidden border-zinc-700 text-zinc-100 md:inline-flex">
+      <Button
+        asChild
+        className="hidden border-transparent bg-white text-zinc-900 hover:bg-zinc-100 md:inline-flex"
+      >
         <a href="#project">Hire Me</a>
       </Button>
     </div>

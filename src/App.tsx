@@ -97,7 +97,10 @@ function App() {
                 Download CV <Download className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button variant="outline" asChild className="border-zinc-700 text-zinc-100">
+            <Button
+              asChild
+              className="border border-zinc-700 bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
+            >
               <a href="#project">Lihat Proyek</a>
             </Button>
           </div>

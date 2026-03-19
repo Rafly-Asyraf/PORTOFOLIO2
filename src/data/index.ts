@@ -1,4 +1,4 @@
-import HeroImage from "/assets/hero-img.jpg";
+import HeroImage from "/assets/profile.jpg";
 
 // Type for a single tool item displayed in the tools section
 export type Tool = {
