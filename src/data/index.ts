@@ -1,10 +1,31 @@
 import HeroImage from "/assets/hero-img.jpg";
 
-const Image = {
+// Type for a single tool item displayed in the tools section
+export type Tool = {
+  id: number;
+  gambar: string;
+  nama: string;
+  ket: string;
+  dad: string;
+};
+
+// Type for a single project item displayed in the projects section
+export type Project = {
+  id: number;
+  gambar: string;
+  nama: string;
+  desk: string;
+  tools: string[];
+  dad: string;
+  link: string;
+};
+
+// Helper data for images used in multiple sections
+const DataImage = {
   HeroImage,
 };
 
-export default Image;
+export default DataImage;
 
 import Tools1 from "/assets/tools/vscode.png";
 import Tools2 from "/assets/tools/reactjs.png";
@@ -14,11 +35,9 @@ import Tools5 from "/assets/tools/bootstrap.png";
 import Tools6 from "/assets/tools/js.png";
 import Tools7 from "/assets/tools/nodejs.png";
 import Tools8 from "/assets/tools/github.png";
-import Tools9 from "/assets/tools/ai.png";
-import Tools10 from "/assets/tools/canva.png";
-import Tools11 from "/assets/tools/figma.png";
 
-export const listTools = [
+// List of tools to render in the tools section
+export const listTools: Tool[] = [
   {
     id: 1,
     gambar: Tools1,
@@ -75,7 +94,6 @@ export const listTools = [
     ket: "Repository",
     dad: "800",
   },
-  
 ];
 
 import Proyek1 from "/assets/proyek/proyek1.png";
@@ -83,8 +101,8 @@ import Proyek2 from "/assets/proyek/proyek2.png";
 import Proyek3 from "/assets/proyek/proyek3.png";
 import Proyek4 from "/assets/proyek/proyek4.png";
 
-
-export const listProyek = [
+// List of projects to render in the project section
+export const listProyek: Project[] = [
   {
     id: 1,
     gambar: Proyek1,
@@ -92,7 +110,7 @@ export const listProyek = [
     desk: "Merupakan website landing page untuk brand fylo yang menawarkan penyimpanan file/document.",
     tools: ["HTML", "CSS", "Javascript"],
     dad: "200",
-    link:"https://rafly-asyraf.github.io/landing-page-dark-theme-fylo/",
+    link: "https://rafly-asyraf.github.io/landing-page-dark-theme-fylo/",
   },
   {
     id: 2,
@@ -101,7 +119,7 @@ export const listProyek = [
     desk: "Merupakn Website e-commers yang menawarkan pemesanan suatu dessert secara online.",
     tools: ["CodeIgniter3", "PHP", "MySQL", "GitHub"],
     dad: "300",
-    link:"https://rafly-asyraf.github.io/gossert/",
+    link: "https://rafly-asyraf.github.io/gossert/",
   },
   {
     id: 3,
@@ -110,31 +128,15 @@ export const listProyek = [
     desk: "Merupakan UI untuk sign up user.",
     tools: ["HTML", "CSS", "Javascript"],
     dad: "400",
-    link:"https://rafly-asyraf.github.io/sign-up/",
+    link: "https://rafly-asyraf.github.io/sign-up/",
   },
   {
     id: 4,
     gambar: Proyek4,
     nama: "Luxora",
     desk: "Merupakan website landing page untuk brand Luxora yang menampilkan dan mempromosikan produk jam digital modern.",
-    tools: ["NextJS", "TypeScript", "Tailwind CSS", "Shadcn/UI","Vercel"],
+    tools: ["NextJS", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Vercel"],
     dad: "500",
     link: "https://landing-page-next-js-eight.vercel.app/",
   },
-  // {
-  //   id: 5,
-  //   gambar: Proyek5,
-  //   nama: "Web Portfolio",
-  //   desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-  //   tools: ["HTML", "CSS", "Javascript", "Bootsrap"],
-  //   dad: "600",
-  // },
-  // {
-  //   id: 6,
-  //   gambar: Proyek6,
-  //   nama: "Company Profile 2.0",
-  //   desk: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, laborum!",
-  //   tools: ["NextJS", "TailwindCSS", "Framermotion"],
-  //   dad: "700",
-  // },
 ];
