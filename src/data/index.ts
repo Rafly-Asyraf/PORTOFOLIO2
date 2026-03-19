@@ -42,20 +42,20 @@ export const listTools: Tool[] = [
     id: 1,
     gambar: Tools1,
     nama: "Visual Studio Code",
-    ket: "Code Editor",
+    ket: "IDE",
     dad: "100",
   },
   {
     id: 2,
     gambar: Tools2,
-    nama: "React JS",
-    ket: "Framework",
+    nama: "React",
+    ket: "Library",
     dad: "200",
   },
   {
     id: 3,
     gambar: Tools3,
-    nama: "Next JS",
+    nama: "Next.js",
     ket: "Framework",
     dad: "300",
   },
@@ -76,30 +76,31 @@ export const listTools: Tool[] = [
   {
     id: 6,
     gambar: Tools6,
-    nama: "Javascript",
+    nama: "JavaScript",
     ket: "Language",
     dad: "600",
   },
   {
     id: 7,
     gambar: Tools7,
-    nama: "Node JS",
-    ket: "Javascript Runtime",
+    nama: "Node.js",
+    ket: "JavaScript Runtime",
     dad: "700",
   },
   {
     id: 8,
     gambar: Tools8,
-    nama: "Github",
-    ket: "Repository",
+    nama: "GitHub",
+    ket: "Version Control",
     dad: "800",
   },
 ];
 
 import Proyek1 from "/assets/proyek/proyek1.png";
 import Proyek2 from "/assets/proyek/proyek2.png";
-import Proyek3 from "/assets/proyek/proyek3.png";
+import Proyek3 from "/assets/proyek/woysplitbill.png";
 import Proyek4 from "/assets/proyek/proyek4.png";
+import Proyek5 from "/assets/proyek/uangku.png";
 
 // List of projects to render in the project section
 export const listProyek: Project[] = [
@@ -107,8 +108,8 @@ export const listProyek: Project[] = [
     id: 1,
     gambar: Proyek1,
     nama: "Fylo",
-    desk: "Merupakan website landing page untuk brand fylo yang menawarkan penyimpanan file/document.",
-    tools: ["HTML", "CSS", "Javascript"],
+    desk: "Landing page untuk brand Fylo yang menampilkan layanan penyimpanan file dan dokumen.",
+    tools: ["HTML", "CSS", "JavaScript"],
     dad: "200",
     link: "https://rafly-asyraf.github.io/landing-page-dark-theme-fylo/",
   },
@@ -116,7 +117,7 @@ export const listProyek: Project[] = [
     id: 2,
     gambar: Proyek2,
     nama: "Gossert",
-    desk: "Merupakn Website e-commers yang menawarkan pemesanan suatu dessert secara online.",
+    desk: "Website e-commerce untuk pemesanan dessert secara online.",
     tools: ["CodeIgniter3", "PHP", "MySQL", "GitHub"],
     dad: "300",
     link: "https://rafly-asyraf.github.io/gossert/",
@@ -124,19 +125,28 @@ export const listProyek: Project[] = [
   {
     id: 3,
     gambar: Proyek3,
-    nama: "Sign-up",
-    desk: "Merupakan UI untuk sign up user.",
-    tools: ["HTML", "CSS", "Javascript"],
+    nama: "Woy-SplitBill",
+    desk: "Aplikasi split bill sederhana untuk membagi pengeluaran antar beberapa orang dengan cepat dan akurat.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Zustand","React Hook Form + Zod", "Lucide React"],
     dad: "400",
-    link: "https://rafly-asyraf.github.io/sign-up/",
+    link: "https://woy-split-bill.vercel.app",
   },
   {
     id: 4,
     gambar: Proyek4,
     nama: "Luxora",
-    desk: "Merupakan website landing page untuk brand Luxora yang menampilkan dan mempromosikan produk jam digital modern.",
-    tools: ["NextJS", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Vercel"],
+    desk: "Landing page untuk brand Luxora yang menampilkan dan mempromosikan jam digital modern.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Vercel"],
     dad: "500",
     link: "https://landing-page-next-js-eight.vercel.app/",
+  },
+  {
+    id: 5,
+    gambar: Proyek5,
+    nama: "Luxora",
+    desk: "Aplikasi pencatat pengeluaran sederhana dengan input cepat (contoh: makan 15000), dilengkapi chart dan tanpa backend.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI","Chart.js", "Redix/UI"],
+    dad: "500",
+    link: "https://uangku-neon.vercel.app/",
   },
 ];

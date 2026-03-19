@@ -16,15 +16,15 @@ function renderToolCard(tool: Tool) {
   return (
     <Card
       key={tool.id}
-      className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none transition hover:-translate-y-1 hover:bg-zinc-900"
+      className="border border-cyan-400/10 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(6,182,212,0.15)]"
     >
-      <CardContent className="flex items-center gap-3 p-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-800">
+      <CardContent className="flex items-center gap-4 p-5">
+        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-400/15 text-cyan-200 shadow-[0_0_18px_rgba(6,182,212,0.3)]">
           <img src={tool.gambar} alt={tool.nama} className="h-8 w-8" />
         </div>
         <div className="space-y-1">
-          <p className="text-sm font-semibold">{tool.nama}</p>
-          <Badge variant="secondary" className="bg-zinc-800 text-zinc-200">
+          <p className="text-base font-semibold">{tool.nama}</p>
+          <Badge className="border border-cyan-400/30 bg-cyan-400/10 text-cyan-200">
             {tool.ket}
           </Badge>
         </div>
@@ -35,7 +35,10 @@ function renderToolCard(tool: Tool) {
 
 function renderProjectTool(tool: string, index: number) {
   return (
-    <Badge key={`${tool}-${index}`} variant="outline" className="border-zinc-700 text-zinc-200">
+    <Badge
+      key={`${tool}-${index}`}
+      className="border border-cyan-400/20 bg-slate-900/60 text-slate-200"
+    >
       {tool}
     </Badge>
   );
@@ -45,27 +48,31 @@ function renderProjectCard(proyek: Project) {
   return (
     <Card
       key={proyek.id}
-      className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none"
+      className="group border border-cyan-400/10 bg-gradient-to-br from-[#0b1224] via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(6,182,212,0.2)]"
     >
       <CardHeader className="p-4">
-        <div className="overflow-hidden rounded-lg">
+        <div className="relative overflow-hidden rounded-lg">
           <img
             src={proyek.gambar}
             alt={proyek.nama}
-            className="h-44 w-full object-cover transition duration-300 hover:scale-105"
+            className="h-44 w-full object-cover transition duration-300 group-hover:scale-105"
             loading="lazy"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1224]/80 via-transparent to-transparent opacity-0 transition duration-200 ease-in-out group-hover:opacity-100" />
         </div>
       </CardHeader>
       <CardContent className="space-y-3 p-4 pt-0">
         <CardTitle className="text-xl">{proyek.nama}</CardTitle>
-        <CardDescription className="text-zinc-400">{proyek.desk}</CardDescription>
+        <CardDescription className="text-slate-400">{proyek.desk}</CardDescription>
         <div className="flex flex-wrap gap-2">
           {proyek.tools.map((tool, index) => renderProjectTool(tool, index))}
         </div>
       </CardContent>
       <CardFooter className="p-4 pt-0">
-        <Button asChild className="w-full bg-zinc-100 text-zinc-900 hover:bg-white">
+        <Button
+          asChild
+          className="w-full bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.3)] transition duration-200 ease-in-out hover:scale-[1.03] hover:bg-cyan-300"
+        >
           <a href={proyek.link} target="_blank" rel="noopener noreferrer">
             View website <ArrowUpRight className="ml-2 h-4 w-4" />
           </a>
@@ -77,136 +84,129 @@ function renderProjectCard(proyek: Project) {
 
 function App() {
   return (
-    <div className="space-y-16 pb-20 pt-10 text-zinc-100">
-      <section id="home" className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div className="space-y-8 pb-8 pt-6 text-slate-50 md:space-y-10 md:pb-10">
+      <section id="home" className="grid gap-5 py-6 md:py-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6">
-          <Badge className="w-fit bg-zinc-100 text-zinc-900">
-            <Sparkles className="mr-2 h-4 w-4" /> Front-end Developer
+          <Badge className="w-fit border border-cyan-400/40 bg-cyan-400/10 text-cyan-200">
+            <Sparkles className="mr-2 h-4 w-4" /> Front-End Developer
           </Badge>
-          <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
+          <h1 className="text-4xl font-bold leading-tight md:text-6xl">
             Muhammad Rafly Asyraf
           </h1>
-          <p className="text-base leading-relaxed text-zinc-400">
-            Fresh graduate Teknologi Informasi dengan fokus pada front-end
-            development. Berpengalaman membangun antarmuka web yang responsif,
-            rapi, dan siap produksi menggunakan React dan Tailwind CSS.
+          <p className="text-base leading-relaxed text-slate-400">
+            Lulusan Teknologi Informasi dengan fokus pada front-end development.
+            Berpengalaman membangun antarmuka web yang responsif, rapi, dan siap
+            produksi dengan pendekatan UI modern serta praktik terbaik
+            pengembangan web.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button asChild className="bg-zinc-100 text-zinc-900 hover:bg-white">
+            <Button
+              asChild
+              className="bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300"
+            >
               <a href="#project">
-                Download CV <Download className="ml-2 h-4 w-4" />
+                Unduh CV <Download className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button
               asChild
-              className="border border-zinc-700 bg-zinc-800 text-zinc-100 hover:bg-zinc-700"
+              className="border border-cyan-400/40 bg-transparent text-cyan-100 transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-400/10"
             >
-              <a href="#project">Lihat Proyek</a>
+              <a href="#project">Lihat Portofolio</a>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+            <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,182,212,0.2)]">
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">4+</CardTitle>
-                <CardDescription className="text-zinc-400">
-                  Project Selesai
-                </CardDescription>
+                <CardDescription className="text-slate-400">Proyek Selesai</CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+            <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,182,212,0.2)]">
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">1+</CardTitle>
-                <CardDescription className="text-zinc-400">
+                <CardDescription className="text-slate-400">
                   Tahun Pengalaman
                 </CardDescription>
               </CardHeader>
             </Card>
           </div>
         </div>
-        <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
-          <CardContent className="p-6">
+        <Card className="border border-cyan-400/20 bg-gradient-to-br from-[#0b1224] via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+          <CardContent className="p-5">
             <div className="space-y-6">
-              <div className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/80 p-4">
-                <img
-                  src={DataImage.HeroImage}
-                  alt="Hero Image"
-                  className="h-12 w-12 rounded-md object-cover"
-                  loading="lazy"
-                />
-                <p className="text-sm text-zinc-300">
-                  Kode yang indah lahir dari kedisiplinan dan konsistensi.
-                </p>
-              </div>
-              <div className="overflow-hidden rounded-2xl">
+              <div className="group overflow-hidden rounded-2xl border border-cyan-400/30 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
                 <img
                   src={DataImage.HeroImage}
                   alt="Profile"
-                  className="h-80 w-full object-cover"
+                  className="h-[24rem] w-full object-cover object-[50%_5%] transition duration-200 ease-in-out group-hover:scale-[1.04]"
                   loading="lazy"
                 />
               </div>
-              <div className="space-y-2 text-sm text-zinc-400">
-                <p>Front-end · React · Tailwind · TypeScript</p>
-                <p>Siap kolaborasi untuk proyek web modern.</p>
+              <div className="space-y-2 text-sm text-slate-400">
+                <p>Front-End · React · Tailwind · TypeScript</p>
+                <p>Terbuka untuk kolaborasi pada proyek web modern.</p>
               </div>
             </div>
           </CardContent>
         </Card>
       </section>
 
-      <Separator className="bg-zinc-800" />
+      <Separator className="bg-cyan-400/20" />
 
-      <section id="about" className="space-y-6">
+      <section id="about" className="space-y-5 py-6 md:py-8">
         <div className="max-w-3xl space-y-3">
-          <h2 className="text-3xl font-semibold">Tentang Saya</h2>
-          <p className="text-base leading-relaxed text-zinc-400">
-            Saya memiliki semangat tinggi untuk terus belajar dan berkembang. Saya
-            ingin berkontribusi dalam tim profesional melalui program magang atau
+          <h2 className="text-3xl font-semibold md:text-4xl">Tentang Saya</h2>
+          <p className="text-base leading-relaxed text-slate-400">
+            Saya berkomitmen untuk terus belajar dan berkembang. Saya ingin
+            berkontribusi dalam tim profesional melalui program magang atau
             full-time di bidang front-end development untuk membangun produk yang
-            memberi dampak nyata.
+            berdampak nyata.
           </p>
         </div>
-        <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
-          <CardContent className="grid gap-6 p-6 md:grid-cols-[auto_1fr]">
-            <img
-              src={DataImage.HeroImage}
-              alt="About"
-              className="h-16 w-16 rounded-md object-cover"
-              loading="lazy"
-            />
-            <div className="space-y-2 text-zinc-400">
-              <p>
-                Fokus saya adalah membangun antarmuka web yang rapi, cepat, dan
-                mudah digunakan. Saya terbiasa bekerja dengan desain modern,
-                mengutamakan detail UI, dan menjaga kualitas performa.
-              </p>
-              <p>
-                Saya terbuka untuk kolaborasi pada produk digital, landing page,
-                atau dashboard yang memerlukan tampilan profesional.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="rounded-2xl bg-gradient-to-r from-cyan-400/30 via-transparent to-cyan-400/20 p-[1px]">
+          <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/5 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(6,182,212,0.2)]">
+            <CardContent className="grid gap-6 p-6 md:grid-cols-[auto_1fr] md:p-8">
+              <img
+                src={DataImage.HeroImage}
+                alt="About"
+                className="h-16 w-16 rounded-md object-cover ring-2 ring-cyan-400/60"
+                loading="lazy"
+              />
+              <div className="space-y-2 text-slate-400">
+                <p>
+                  Fokus saya adalah membangun antarmuka web yang rapi, cepat, dan
+                  mudah digunakan. Saya terbiasa bekerja dengan desain modern,
+                  mengutamakan detail UI, serta menjaga kualitas performa.
+                </p>
+                <p>
+                  Saya terbuka untuk kolaborasi pada produk digital, landing page,
+                  maupun dashboard yang membutuhkan tampilan profesional.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
-      <section className="space-y-6">
+      <section className="space-y-5 py-6 md:py-8">
         <div className="space-y-2">
-          <h2 className="text-3xl font-semibold">Tools yang Digunakan</h2>
-          <p className="text-base text-zinc-400">
+          <h2 className="text-3xl font-semibold md:text-4xl">Tools & Teknologi</h2>
+          <p className="text-base text-slate-400">
             Stack utama yang saya gunakan untuk membangun aplikasi web modern.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {listTools.map((tool) => renderToolCard(tool))}
         </div>
       </section>
 
-      <section id="project" className="space-y-6">
+      <section id="project" className="space-y-5 py-6 md:py-8">
         <div className="space-y-2">
-          <h2 className="text-3xl font-semibold">Project Terbaru</h2>
-          <p className="text-base text-zinc-400">
-            Beberapa proyek yang pernah saya kerjakan, fokus pada UI yang rapi dan
-            performa yang stabil.
+          <h2 className="text-3xl font-semibold md:text-4xl">Proyek Terbaru</h2>
+          <p className="text-base text-slate-400">
+            Beberapa proyek yang pernah saya kerjakan dengan fokus pada UI yang
+            rapi dan performa yang stabil.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
