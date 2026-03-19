@@ -144,7 +144,7 @@ export const listProyek: Project[] = [
     id: 5,
     gambar: Proyek5,
     nama: "Uangku",
-    desk: "Aplikasi pencatat pengeluaran dengan input cepat, visualisasi chart, dan tanpa backend.",
+    desk: "Aplikasi pencatat pengeluaran sederhana dengan input cepat (contoh: makan 15000) dilengkapi chart dan tanpa backend.",
     tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Chart.js", "Radix UI"],
     dad: "500",
     link: "https://uangku-neon.vercel.app/",
