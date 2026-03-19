@@ -10,7 +10,7 @@ function Footer() {
         <div className="space-y-3">
           <h2 className="text-lg font-semibold text-slate-50">Portfolio</h2>
           <p className="text-sm leading-relaxed text-slate-400">
-            Siap berkolaborasi untuk membangun produk web modern dengan standar tinggi.
+            Terbuka untuk kolaborasi dalam pengembangan produk web modern berstandar tinggi.
           </p>
         </div>
 
@@ -33,6 +33,12 @@ function Footer() {
               className="relative text-slate-400 transition duration-300 ease-out hover:text-cyan-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
             >
               Project
+            </a>
+            <a 
+              href="#contact" 
+              className="relative text-slate-400 transition duration-300 ease-out hover:text-cyan-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Kontak
             </a>
           </nav>
 

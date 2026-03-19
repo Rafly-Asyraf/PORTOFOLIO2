@@ -4,13 +4,16 @@ import { Menu, X } from "lucide-react";
 
 function getMenuClass(isOpen: boolean): string {
   const baseClass =
-    "menu flex items-center gap-6 md:static fixed left-1/2 -translate-x-1/2 md:translate-x-0 md:opacity-100 md:pointer-events-auto bg-[#0f172a]/80 border border-cyan-400/20 backdrop-blur-md px-6 py-3 mt-2 md:mt-0 rounded-full md:bg-transparent md:border-transparent transition-all duration-200 ease-in-out";
+    "menu flex items-center gap-6 md:static md:translate-x-0 md:opacity-100 md:pointer-events-auto md:bg-transparent md:border-transparent transition-all duration-200 ease-in-out";
 
   const mobileState = isOpen
-    ? "top-16 opacity-100 pointer-events-auto"
-    : "top-10 opacity-0 pointer-events-none";
+    ? "fixed inset-x-4 top-16 opacity-100 pointer-events-auto"
+    : "fixed inset-x-4 top-12 opacity-0 pointer-events-none";
 
-  return `${baseClass} ${mobileState}`;
+  const mobileStyle =
+    "flex-col rounded-2xl border border-cyan-400/20 bg-[#0f172a]/95 px-6 py-5 shadow-[0_20px_50px_rgba(6,182,212,0.25)] backdrop-blur-md md:flex-row md:rounded-none md:border-transparent md:bg-transparent md:px-0 md:py-0 md:shadow-none";
+
+  return `${baseClass} ${mobileStyle} ${mobileState}`;
 }
 
 function Navbar() {
@@ -51,7 +54,7 @@ function Navbar() {
           <a
             href="#home"
             onClick={() => setMenuOpen(false)}
-            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 md:after:absolute md:after:-bottom-1 md:after:left-0 md:after:h-[2px] md:after:w-0 md:after:bg-cyan-400 md:after:transition-all md:after:duration-300 md:hover:after:w-full"
           >
             Home
           </a>
@@ -60,7 +63,7 @@ function Navbar() {
           <a
             href="#about"
             onClick={() => setMenuOpen(false)}
-            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 md:after:absolute md:after:-bottom-1 md:after:left-0 md:after:h-[2px] md:after:w-0 md:after:bg-cyan-400 md:after:transition-all md:after:duration-300 md:hover:after:w-full"
           >
             About
           </a>
@@ -69,10 +72,29 @@ function Navbar() {
           <a
             href="#project"
             onClick={() => setMenuOpen(false)}
-            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
+            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 md:after:absolute md:after:-bottom-1 md:after:left-0 md:after:h-[2px] md:after:w-0 md:after:bg-cyan-400 md:after:transition-all md:after:duration-300 md:hover:after:w-full"
           >
             Project
           </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+            className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 md:after:absolute md:after:-bottom-1 md:after:left-0 md:after:h-[2px] md:after:w-0 md:after:bg-cyan-400 md:after:transition-all md:after:duration-300 md:hover:after:w-full"
+          >
+            Kontak
+          </a>
+        </li>
+        <li className="w-full md:hidden">
+          <Button
+            asChild
+            className="w-full bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition duration-200 ease-in-out hover:scale-[1.02] hover:bg-cyan-300"
+          >
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Hire Me
+            </a>
+          </Button>
         </li>
       </ul>
       <div className="flex items-center gap-3">
@@ -80,7 +102,7 @@ function Navbar() {
           asChild
           className="hidden bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300 md:inline-flex"
         >
-          <a href="#project">Hire Me</a>
+          <a href="#contact">Hire Me</a>
         </Button>
         <button
           type="button"
