@@ -1,182 +1,216 @@
 import DataImage, { listTools, listProyek, type Project, type Tool } from "./data";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { ArrowUpRight, Download, Sparkles } from "lucide-react";
 
-// Helper to render tool card items in the tools section
 function renderToolCard(tool: Tool) {
   return (
-    <div
-      className="flex items-center gap-2 p-3 border border-zinc-600 rounded-md hover:bg-zinc-800 group"
+    <Card
       key={tool.id}
+      className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none transition hover:-translate-y-1 hover:bg-zinc-900"
     >
-      <img
-        src={tool.gambar}
-        alt="tools image"
-        className="w-14 bg-zinc-800 p-1 group-hover:bg-zinc-900"
-        loading="lazy"
-      />
-      <div>
-        <h4 className="font-bold">{tool.nama}</h4>
-        <p className="opacity-50">{tool.ket}</p>
-      </div>
-    </div>
+      <CardContent className="flex items-center gap-3 p-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-800">
+          <img src={tool.gambar} alt={tool.nama} className="h-8 w-8" />
+        </div>
+        <div className="space-y-1">
+          <p className="text-sm font-semibold">{tool.nama}</p>
+          <Badge variant="secondary" className="bg-zinc-800 text-zinc-200">
+            {tool.ket}
+          </Badge>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
-// Helper to render a single tool badge inside a project card
 function renderProjectTool(tool: string, index: number) {
   return (
-    <p
-      className="py-1 px-3 border border-zinc-500 bg-zinc-600 rounded-md font-semibold"
-      key={`${tool}-${index}`}
-    >
+    <Badge key={`${tool}-${index}`} variant="outline" className="border-zinc-700 text-zinc-200">
       {tool}
-    </p>
+    </Badge>
   );
 }
 
-// Helper to render project cards in the project section
 function renderProjectCard(proyek: Project) {
   return (
-    <div key={proyek.id} className="p-4 bg-zinc-800 rounded-md">
-      <img src={proyek.gambar} alt="proyek image" loading="lazy" />
-      <div>
-        <h1 className="text-2xl font-bold my-4">{proyek.nama}</h1>
-        <p className="text-base/loose mb-4">{proyek.desk}</p>
+    <Card
+      key={proyek.id}
+      className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none"
+    >
+      <CardHeader className="p-4">
+        <div className="overflow-hidden rounded-lg">
+          <img
+            src={proyek.gambar}
+            alt={proyek.nama}
+            className="h-44 w-full object-cover transition duration-300 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-3 p-4 pt-0">
+        <CardTitle className="text-xl">{proyek.nama}</CardTitle>
+        <CardDescription className="text-zinc-400">{proyek.desk}</CardDescription>
         <div className="flex flex-wrap gap-2">
           {proyek.tools.map((tool, index) => renderProjectTool(tool, index))}
         </div>
-        <div className="mt-8 text-center">
-          <a
-            href={proyek.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-violet-700 p-3 rounded-lg block border border-zinc-600 hover:bg-violet-600"
-          >
-            View website
+      </CardContent>
+      <CardFooter className="p-4 pt-0">
+        <Button asChild className="w-full bg-zinc-100 text-zinc-900 hover:bg-white">
+          <a href={proyek.link} target="_blank" rel="noopener noreferrer">
+            View website <ArrowUpRight className="ml-2 h-4 w-4" />
           </a>
-        </div>
-      </div>
-    </div>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
 
-// Main page component
 function App() {
   return (
-    <>
-      {/* Hero */}
-      <div className="hero grid md:grid-cols-2 items-center md:pt-5 pt-10 mdxl:gap-0 gap-6 grid-cols-1">
-        <div>
-          <div className="flex items-center gap-3 mb-6 bg-zinc-800 w-fit p-4 rounded-2xl">
-            <img
-              src={DataImage.HeroImage}
-              alt="Hero Image"
-              className="w-10 rounded-md"
-              loading="lazy"
-            />
-            <q>kode yang indah ,lahir dari kedisiplinan 😁</q>
-          </div>
-          <h1 className="text-5xl/tight font-bold mb-6">
-            hi, Saya Muhammad Rafly Asyraf
+    <div className="space-y-16 pb-20 pt-10 text-zinc-100">
+      <section id="home" className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="space-y-6">
+          <Badge className="w-fit bg-zinc-100 text-zinc-900">
+            <Sparkles className="mr-2 h-4 w-4" /> Front-end Developer
+          </Badge>
+          <h1 className="text-4xl font-semibold leading-tight md:text-5xl">
+            Muhammad Rafly Asyraf
           </h1>
-          <p className="text-base/loose mb-6 opacity-50">
-            Saya seorang fresh graduate dari program studi Teknologi Informasi di
-            Universitas Bina Sarana Informatika. Saya memiliki ketertarikan
-            mendalam di bidang pengembangan web, dengan fokus pada front-end
-            development. Saya familiar dengan HTML, CSS, JavaScript, serta
-            framework modern seperti Next.js dan React.js.
+          <p className="text-base leading-relaxed text-zinc-400">
+            Fresh graduate Teknologi Informasi dengan fokus pada front-end
+            development. Berpengalaman membangun antarmuka web yang responsif,
+            rapi, dan siap produksi menggunakan React dan Tailwind CSS.
           </p>
-          <div className="flex items-center sm:gap-4 gap-2">
-            <a
-              href="#project"
-              className="bg-violet-700 p-4 rounded-2xl hover:bg-violet-600"
-            >
-              Download CV <i className="ri-download-cloud-2-line ri-lg"></i>
-            </a>
-            <a
-              href="#project"
-              className="bg-zinc-700 p-4 rounded-2xl hover:bg-zinc-600"
-            >
-              Lihat Proyek <i className="ri-arrow-down-long-line ri-lg"></i>{" "}
-            </a>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild className="bg-zinc-100 text-zinc-900 hover:bg-white">
+              <a href="#project">
+                Download CV <Download className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <Button variant="outline" asChild className="border-zinc-700 text-zinc-100">
+              <a href="#project">Lihat Proyek</a>
+            </Button>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+              <CardHeader className="p-4">
+                <CardTitle className="text-3xl">4+</CardTitle>
+                <CardDescription className="text-zinc-400">
+                  Project Selesai
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+              <CardHeader className="p-4">
+                <CardTitle className="text-3xl">1+</CardTitle>
+                <CardDescription className="text-zinc-400">
+                  Tahun Pengalaman
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
-
-        <img
-          src={DataImage.HeroImage}
-          alt="Hero Image"
-          className="w-[450px] md:ml-auto rounded-2xl mt-5"
-          loading="lazy"
-        />
-      </div>
-      {/* hero */}
-      {/* about */}
-      <div className="about mt-30 py-10" id="about">
-        <div className="xl:w-2/3 lg:w-3/4 w-full mx-auto p-7 bg-zinc-800 rounded-lg">
-          <p className="text-base/loose mb-10">
-            Sebagai seorang fresh graduate, saya memiliki semangat tinggi untuk
-            terus belajar dan berkembang. Saya percaya bahwa teknologi terus
-            bergerak maju dan saya ingin menjadi bagian dari perubahan tersebut.
-            Saya juga memiliki kemampuan kerja sama tim yang baik, attitude
-            profesional, dan siap beradaptasi dengan lingkungan kerja baru.
-            <br /> <br />
-            Saat ini saya sedang mencari kesempatan untuk bergabung dalam tim
-            profesional melalui program magang atau pekerjaan full-time di bidang
-            front-end development, di mana saya dapat mengasah kemampuan teknis
-            sekaligus memberikan kontribusi nyata. Saya senang mengeksplorasi
-            teknologi baru dan membangun antarmuka web yang interaktif dan
-            efisien.
-          </p>
-          <div className="flex items-center justify-between">
-            <img
-              src={DataImage.HeroImage}
-              alt="about"
-              className="w-12 rounded-md sm:block hidden"
-              loading="lazy"
-            />
-            <div className="flex items-center gap-6 ">
-              <div>
-                <h1 className="text-4xl mb-1">
-                  4<span className="text-violet-500">+</span>
-                </h1>
-                <p>Project Selesai</p>
+        <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+          <CardContent className="p-6">
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/80 p-4">
+                <img
+                  src={DataImage.HeroImage}
+                  alt="Hero Image"
+                  className="h-12 w-12 rounded-md object-cover"
+                  loading="lazy"
+                />
+                <p className="text-sm text-zinc-300">
+                  Kode yang indah lahir dari kedisiplinan dan konsistensi.
+                </p>
               </div>
-              <div>
-                <h1 className="text-4xl mb-1">
-                  1<span className="text-violet-500">+</span>
-                </h1>
-                <p>Tahun Pengalaman</p>
+              <div className="overflow-hidden rounded-2xl">
+                <img
+                  src={DataImage.HeroImage}
+                  alt="Profile"
+                  className="h-80 w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-2 text-sm text-zinc-400">
+                <p>Front-end · React · Tailwind · TypeScript</p>
+                <p>Siap kolaborasi untuk proyek web modern.</p>
               </div>
             </div>
-          </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <Separator className="bg-zinc-800" />
+
+      <section id="about" className="space-y-6">
+        <div className="max-w-3xl space-y-3">
+          <h2 className="text-3xl font-semibold">Tentang Saya</h2>
+          <p className="text-base leading-relaxed text-zinc-400">
+            Saya memiliki semangat tinggi untuk terus belajar dan berkembang. Saya
+            ingin berkontribusi dalam tim profesional melalui program magang atau
+            full-time di bidang front-end development untuk membangun produk yang
+            memberi dampak nyata.
+          </p>
         </div>
+        <Card className="border-zinc-800 bg-zinc-900/60 text-zinc-100 shadow-none">
+          <CardContent className="grid gap-6 p-6 md:grid-cols-[auto_1fr]">
+            <img
+              src={DataImage.HeroImage}
+              alt="About"
+              className="h-16 w-16 rounded-md object-cover"
+              loading="lazy"
+            />
+            <div className="space-y-2 text-zinc-400">
+              <p>
+                Fokus saya adalah membangun antarmuka web yang rapi, cepat, dan
+                mudah digunakan. Saya terbiasa bekerja dengan desain modern,
+                mengutamakan detail UI, dan menjaga kualitas performa.
+              </p>
+              <p>
+                Saya terbuka untuk kolaborasi pada produk digital, landing page,
+                atau dashboard yang memerlukan tampilan profesional.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
 
-        <div className="tools mt-30">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl/snug font-bold mb-4">Tools yang di pakai</h1>
-            <p className="xl:w-2/5 lg:w-2/4 md:w-2/3 sm:3/4 w-full text-base/loose opacity-50">
-              berikut ini beberapa tools yang saya pakai
-            </p>
-          </div>
-
-          <div className="tools-box mt-14 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-            {listTools.map((tool) => renderToolCard(tool))}
-          </div>
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-3xl font-semibold">Tools yang Digunakan</h2>
+          <p className="text-base text-zinc-400">
+            Stack utama yang saya gunakan untuk membangun aplikasi web modern.
+          </p>
         </div>
-      </div>
-      {/* about */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {listTools.map((tool) => renderToolCard(tool))}
+        </div>
+      </section>
 
-      {/* project */}
-      <div className="project mt-26 py-10" id="project">
-        <h1 className="text-center text-4xl font-bold mb-2">Project</h1>
-        <p className="text-base/loose text-center opacity-50">
-          berikut ini beberapa proyek yang telah saya buat
-        </p>
-        <div className="project-box mt-14 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+      <section id="project" className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-3xl font-semibold">Project Terbaru</h2>
+          <p className="text-base text-zinc-400">
+            Beberapa proyek yang pernah saya kerjakan, fokus pada UI yang rapi dan
+            performa yang stabil.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {listProyek.map((proyek) => renderProjectCard(proyek))}
         </div>
-      </div>
-      {/* project */}
-    </>
+      </section>
+    </div>
   );
 }
 

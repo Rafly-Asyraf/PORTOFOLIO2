@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
-// Helper to build navbar menu class based on scroll state
 function getMenuClass(isActive: boolean): string {
   const baseClass =
-    "menu flex items-center sm:gap-10 gap-4 md:static fixed left-1/2 -translate-x-1/2 md:-translate-x-0 md:opacity-100 bg-violet-700 backdrop-blur-md p-4 mt-2 md:mt-0 rounded-4xl md:bg-transparent transition-all md:transition-none";
+    "menu flex items-center gap-6 md:static fixed left-1/2 -translate-x-1/2 md:-translate-x-0 md:opacity-100 bg-zinc-900/80 border border-zinc-800 backdrop-blur-md px-6 py-3 mt-2 md:mt-0 rounded-full md:bg-transparent md:border-transparent transition-all md:transition-none";
 
   return `${baseClass} ${isActive ? "top-0 opacity-100" : "-top-10 opacity-0"}`;
 }
@@ -29,29 +29,32 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="navbar py-6 flex justify-between">
+    <div className="navbar flex items-center justify-between py-6">
       <div className="logo">
-        <h1 className="text-3xl font-bold bg-white text-black p-1 md:bg-transparent md:text-white">
+        <h1 className="text-2xl font-semibold tracking-tight text-zinc-100">
           portofolio
         </h1>
       </div>
       <ul className={getMenuClass(active)}>
         <li>
-          <a href="#home" className="sm:text-lg text-base font-medium">
+          <a href="#home" className="text-sm font-medium text-zinc-100">
             Home
           </a>
         </li>
         <li>
-          <a href="#about" className="sm:text-lg text-base font-medium">
+          <a href="#about" className="text-sm font-medium text-zinc-100">
             About
           </a>
         </li>
         <li>
-          <a href="#project" className="sm:text-lg text-base font-medium">
+          <a href="#project" className="text-sm font-medium text-zinc-100">
             Project
           </a>
         </li>
       </ul>
+      <Button asChild variant="outline" className="hidden border-zinc-700 text-zinc-100 md:inline-flex">
+        <a href="#project">Hire Me</a>
+      </Button>
     </div>
   );
 }
