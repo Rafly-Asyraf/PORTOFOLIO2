@@ -97,9 +97,9 @@ export const listTools: Tool[] = [
 ];
 
 import Proyek1 from "/assets/proyek/proyek1.png";
-import Proyek2 from "/assets/proyek/proyek2.png";
+import Proyek2 from "/assets/proyek/furnitool.png";
 import Proyek3 from "/assets/proyek/woysplitbill.png";
-import Proyek4 from "/assets/proyek/proyek4.png";
+import Proyek4 from "/assets/proyek/luxora.png";
 import Proyek5 from "/assets/proyek/uangku.png";
 
 // List of projects to render in the project section
@@ -116,11 +116,11 @@ export const listProyek: Project[] = [
   {
     id: 2,
     gambar: Proyek2,
-    nama: "Gossert",
-    desk: "Website e-commerce untuk pemesanan dessert online dengan tampilan modern dan alur pembelian yang ringkas.",
-    tools: ["CodeIgniter3", "PHP", "MySQL", "GitHub","vercel"],
+    nama: "Furnitool",
+    desk: "Furnitool membantu menghitung biaya, membuat penawaran, dan menambahkan harga ke foto produk tanpa backend.",
+    tools: ["React + Vite","Typescript","Tailwind CSS","React Hook Form + Zod","Html2canvas"],
     dad: "300",
-    link: "https://rafly-asyraf.github.io/gossert/",
+    link: "https://furnitool-six.vercel.app",
   },
   {
     id: 3,
@@ -136,7 +136,7 @@ export const listProyek: Project[] = [
     gambar: Proyek4,
     nama: "Luxora",
     desk: "Landing page untuk brand Luxora yang menampilkan dan mempromosikan jam digital modern.",
-    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Vercel"],
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI"],
     dad: "500",
     link: "https://landing-page-next-js-eight.vercel.app/",
   },
