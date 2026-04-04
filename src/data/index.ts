@@ -35,6 +35,7 @@ import Tools5 from "/assets/tools/bootstrap.png";
 import Tools6 from "/assets/tools/js.png";
 import Tools7 from "/assets/tools/nodejs.png";
 import Tools8 from "/assets/tools/github.png";
+import Tools9 from "/assets/tools/docker.svg";
 
 // List of tools to render in the tools section
 export const listTools: Tool[] = [
@@ -94,9 +95,16 @@ export const listTools: Tool[] = [
     ket: "Version Control",
     dad: "800",
   },
+  {
+    id: 9,
+    gambar: Tools9,
+    nama: "Docker",
+    ket: "Container Platform",
+    dad: "900",
+  },
 ];
 
-import Proyek1 from "/assets/proyek/proyek1.png";
+import Proyek1 from "/assets/proyek/servepos.png";
 import Proyek2 from "/assets/proyek/furnitool.png";
 import Proyek3 from "/assets/proyek/woysplitbill.png";
 import Proyek4 from "/assets/proyek/luxora.png";
@@ -107,11 +115,11 @@ export const listProyek: Project[] = [
   {
     id: 1,
     gambar: Proyek1,
-    nama: "Fylo",
-    desk: "Landing page modern untuk brand Fylo yang menampilkan layanan penyimpanan file dan dokumen dengan desain responsif dan mudah digunakan.",
-    tools: ["HTML", "CSS", "JavaScript"],
+    nama: "ServePos",
+    desk: "Website kasir F&B modern untuk mengelola menu, mencatat pesanan, dan memproses transaksi dengan cepat dan efisien.",
+    tools: ["React + Vite", "TypeScript", "Tailwind CSS", "Shadcn/UI"],
     dad: "200",
-    link: "https://rafly-asyraf.github.io/landing-page-dark-theme-fylo/",
+    link: "servepos.vercel.app",
   },
   {
     id: 2,
