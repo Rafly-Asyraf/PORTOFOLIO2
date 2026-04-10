@@ -119,7 +119,7 @@ export const listProyek: Project[] = [
     desk: "Website kasir F&B modern untuk mengelola menu, mencatat pesanan, dan memproses transaksi dengan cepat dan efisien.",
     tools: ["React + Vite", "TypeScript", "Tailwind CSS", "Shadcn/UI"],
     dad: "200",
-    link: "servepos.vercel.app",
+    link: "https://servepos.vercel.app",
   },
   {
     id: 2,
