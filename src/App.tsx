@@ -104,7 +104,7 @@ function App() {
               asChild
               className="bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300"
             >
-              <a href="/assets/cv-rafly-asyraf.pdf" download>
+              <a href="/assets/Muhammad-Rafly-Asyraf-CV-ATS.pdf" download="Muhammad Rafly Asyraf CV.pdf">
                 Unduh CV <Download className="ml-2 h-4 w-4" />
               </a>
             </Button>
