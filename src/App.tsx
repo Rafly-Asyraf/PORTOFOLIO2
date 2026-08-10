@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowUpRight, Download, Mail, MessageCircle, Phone, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 function renderToolCard(tool: Tool) {
   return (
@@ -85,8 +86,19 @@ function renderProjectCard(proyek: Project) {
 function App() {
   return (
     <div className="space-y-8 pb-8 pt-6 text-slate-50 md:space-y-10 md:pb-10">
-      <section id="home" className="grid gap-5 py-6 md:py-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-6">
+      <motion.section
+        id="home"
+        className="grid gap-5 py-6 md:py-8 lg:grid-cols-[1.1fr_0.9fr]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <motion.div
+          className="space-y-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+        >
           <Badge className="w-fit border border-cyan-400/40 bg-cyan-400/10 text-cyan-200">
             <Sparkles className="mr-2 h-4 w-4" /> Front-End Engineer
           </Badge>
@@ -129,8 +141,13 @@ function App() {
               </CardHeader>
             </Card>
           </div>
-        </div>
-        <Card className="border border-cyan-400/20 bg-gradient-to-br from-[#0b1224] via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
+        >
+          <Card className="border border-cyan-400/20 bg-gradient-to-br from-[#0b1224] via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
           <CardContent className="p-5">
             <div className="space-y-6">
               <div className="group overflow-hidden rounded-2xl border border-cyan-400/30 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
@@ -147,8 +164,9 @@ function App() {
               </div>
             </div>
           </CardContent>
-        </Card>
-      </section>
+          </Card>
+        </motion.div>
+      </motion.section>
 
       <Separator className="bg-cyan-400/20" />
 
@@ -187,30 +205,55 @@ function App() {
         </div>
       </section>
 
-      <section className="space-y-5 py-6 md:py-8">
-        <div className="space-y-2">
+      <motion.section
+        className="space-y-5 py-6 md:py-8"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+      >
+        <motion.div className="space-y-2">
           <h2 className="text-3xl font-semibold md:text-4xl">Tech Stack</h2>
           <p className="text-base text-slate-400">
             Teknologi utama yang saya gunakan untuk membangun aplikasi web modern.
           </p>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        </motion.div>
+        <motion.div
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+        >
           {listTools.map((tool) => renderToolCard(tool))}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      <section id="project" className="space-y-5 py-6 md:py-8">
-        <div className="space-y-2">
+      <motion.section
+        id="project"
+        className="space-y-5 py-6 md:py-8"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+      >
+        <motion.div className="space-y-2">
           <h2 className="text-3xl font-semibold md:text-4xl">Proyek Terbaru</h2>
           <p className="text-base text-slate-400">
             Beberapa proyek yang pernah saya kerjakan dengan fokus pada UI yang
             rapi dan performa yang stabil.
           </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        </motion.div>
+        <motion.div
+          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+        >
           {listProyek.map((proyek) => renderProjectCard(proyek))}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       <section id="contact" className="space-y-5 py-6 md:py-8">
         <div className="space-y-2">
