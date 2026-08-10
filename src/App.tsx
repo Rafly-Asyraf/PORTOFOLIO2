@@ -1,4 +1,9 @@
-import DataImage, { listTools, listProyek, type Project, type Tool } from "./data";
+import DataImage, {
+  listTools,
+  listProyek,
+  type Project,
+  type Tool,
+} from "./data";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,7 +15,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowUpRight, Download, Mail, MessageCircle, Phone, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  Download,
+  Mail,
+  MessageCircle,
+  Phone,
+  Sparkles,
+} from "lucide-react";
 import { motion } from "motion/react";
 
 function renderToolCard(tool: Tool) {
@@ -64,7 +76,9 @@ function renderProjectCard(proyek: Project) {
       </CardHeader>
       <CardContent className="space-y-3 p-4 pt-0">
         <CardTitle className="text-xl">{proyek.nama}</CardTitle>
-        <CardDescription className="text-slate-400">{proyek.desk}</CardDescription>
+        <CardDescription className="text-slate-400">
+          {proyek.desk}
+        </CardDescription>
         <div className="flex flex-wrap gap-2">
           {proyek.tools.map((tool, index) => renderProjectTool(tool, index))}
         </div>
@@ -106,38 +120,44 @@ function App() {
             Muhammad Rafly Asyraf
           </h1>
           <p className="text-base leading-relaxed text-slate-400">
-            Lulusan Teknologi Informasi dengan fokus pada pengembangan front-end.
-            Berpengalaman merancang antarmuka web yang responsif, rapi, dan siap
-            produksi dengan pendekatan UI modern serta praktik terbaik
-            pengembangan web.
+            Informatics Engineering Graduate focused on front-end development.
+            Experienced in building responsive, clean, and production-ready web
+            interfaces with modern UI practices and web development standards.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
               asChild
               className="bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300"
             >
-              <a href="/assets/Muhammad-Rafly-Asyraf-CV-ATS.pdf" download="Muhammad Rafly Asyraf CV.pdf">
-                Unduh CV <Download className="ml-2 h-4 w-4" />
+              <a
+                href="/assets/Muhammad-Rafly-Asyraf-CV-ATS.pdf"
+                download="Muhammad Rafly Asyraf CV.pdf"
+              >
+                Download CV <Download className="ml-2 h-4 w-4" />
               </a>
             </Button>
             <Button
               asChild
               className="border border-cyan-400/40 bg-transparent text-cyan-100 transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-400/10"
             >
-              <a href="#project">Lihat Portofolio</a>
+              <a href="#project">View Portfolio</a>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,182,212,0.2)]">
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">5+</CardTitle>
-                <CardDescription className="text-slate-400">Proyek Terselesaikan</CardDescription>
+                <CardDescription className="text-slate-400">
+                  Completed project
+                </CardDescription>
               </CardHeader>
             </Card>
             <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,182,212,0.2)]">
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">1+</CardTitle>
-                <CardDescription className="text-slate-400">Tahun Pengalaman</CardDescription>
+                <CardDescription className="text-slate-400">
+                  years of experience
+                </CardDescription>
               </CardHeader>
             </Card>
           </div>
@@ -148,22 +168,22 @@ function App() {
           transition={{ duration: 0.55, ease: "easeOut", delay: 0.2 }}
         >
           <Card className="border border-cyan-400/20 bg-gradient-to-br from-[#0b1224] via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
-          <CardContent className="p-5">
-            <div className="space-y-6">
-              <div className="group overflow-hidden rounded-2xl border border-cyan-400/30 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
-                <img
-                  src={DataImage.HeroImage}
-                  alt="Profile"
-                  className="h-[24rem] w-full object-cover object-[50%_5%] transition duration-200 ease-in-out group-hover:scale-[1.04]"
-                  loading="lazy"
-                />
+            <CardContent className="p-5">
+              <div className="space-y-6">
+                <div className="group overflow-hidden rounded-2xl border border-cyan-400/30 shadow-[0_0_25px_rgba(6,182,212,0.2)]">
+                  <img
+                    src={DataImage.HeroImage}
+                    alt="Profile"
+                    className="h-[24rem] w-full object-cover object-[50%_5%] transition duration-200 ease-in-out group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="space-y-2 text-sm text-slate-400">
+                  <p>Front-End · UI Engineering · Web Performance</p>
+                  <p>Open for collaboration on modern web projects.</p>
+                </div>
               </div>
-              <div className="space-y-2 text-sm text-slate-400">
-                <p>Front-End · UI Engineering · Web Performance</p>
-                <p>Terbuka untuk kolaborasi pada proyek web modern.</p>
-              </div>
-            </div>
-          </CardContent>
+            </CardContent>
           </Card>
         </motion.div>
       </motion.section>
@@ -172,37 +192,17 @@ function App() {
 
       <section id="about" className="space-y-5 py-6 md:py-8">
         <div className="max-w-3xl space-y-3">
-          <h2 className="text-3xl font-semibold md:text-4xl">Tentang Saya</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">About Me</h2>
           <p className="text-base leading-relaxed text-slate-400">
-            Saya berkomitmen untuk terus belajar dan berkembang. Saya ingin
-            berkontribusi dalam tim profesional melalui program magang atau
-            full-time di bidang front-end development untuk membangun produk yang
-            berdampak nyata.
+            I am an Informatics Engineering Graduate focused on front-end
+            development. Experienced in building responsive, clean, and
+            production-ready web interfaces using Next.js, React, TypeScript,
+            and Tailwind CSS. Committed to continuous learning, I am eager to
+            contribute as a full-time Front-End Developer to build impactful and
+            scalable digital products in a collaborative team.
           </p>
         </div>
-        <div className="rounded-2xl bg-gradient-to-r from-cyan-400/30 via-transparent to-cyan-400/20 p-[1px]">
-          <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/5 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(6,182,212,0.2)]">
-            <CardContent className="grid gap-6 p-6 md:grid-cols-[auto_1fr] md:p-8">
-              <img
-                src={DataImage.HeroImage}
-                alt="About"
-                className="h-16 w-16 rounded-md object-cover ring-2 ring-cyan-400/60"
-                loading="lazy"
-              />
-              <div className="space-y-2 text-slate-400">
-                <p>
-                  Fokus saya adalah membangun antarmuka web yang rapi, cepat, dan
-                  mudah digunakan. Saya terbiasa bekerja dengan desain modern,
-                  mengutamakan detail UI, serta menjaga kualitas performa.
-                </p>
-                <p>
-                  Saya terbuka untuk kolaborasi pada produk digital, landing page,
-                  maupun dashboard yang membutuhkan tampilan profesional.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <div className="rounded-2xl bg-gradient-to-r from-cyan-400/30 via-transparent to-cyan-400/20 p-[1px]"></div>
       </section>
 
       <motion.section
@@ -215,7 +215,7 @@ function App() {
         <motion.div className="space-y-2">
           <h2 className="text-3xl font-semibold md:text-4xl">Tech Stack</h2>
           <p className="text-base text-slate-400">
-            Teknologi utama yang saya gunakan untuk membangun aplikasi web modern.
+            Core technologies I use to build modern web applications.
           </p>
         </motion.div>
         <motion.div
@@ -238,10 +238,9 @@ function App() {
         transition={{ duration: 0.55, ease: "easeOut" }}
       >
         <motion.div className="space-y-2">
-          <h2 className="text-3xl font-semibold md:text-4xl">Proyek Terbaru</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">My Projects</h2>
           <p className="text-base text-slate-400">
-            Beberapa proyek yang pernah saya kerjakan dengan fokus pada UI yang
-            rapi dan performa yang stabil.
+            Here are a few projects I've built to apply my front-end skills in real-world scenarios and practice applications.
           </p>
         </motion.div>
         <motion.div
@@ -257,9 +256,9 @@ function App() {
 
       <section id="contact" className="space-y-5 py-6 md:py-8">
         <div className="space-y-2">
-          <h2 className="text-3xl font-semibold md:text-4xl">Kontak</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">Contact</h2>
           <p className="text-base text-slate-400">
-            Terbuka untuk diskusi kebutuhan proyek, peluang kerja, dan kolaborasi.
+            Open to project needs, full-time roles, and tech collaborations.
           </p>
         </div>
         <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/5 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)]">
@@ -271,11 +270,11 @@ function App() {
                   href="mailto:rafly.asyraf9011@gmail.com"
                   className="transition duration-200 ease-in-out hover:text-cyan-300"
                 >
-                  rafly.asyraf9011@gmail.com
+                  raflyasyraf123@gmail.com
                 </a>
               </div>
               <div className="space-y-1 text-sm text-slate-400">
-                <p className="text-slate-200">Telepon</p>
+                <p className="text-slate-200">Telephone</p>
                 <a
                   href="tel:087819393004"
                   className="transition duration-200 ease-in-out hover:text-cyan-300"
@@ -289,15 +288,19 @@ function App() {
                 asChild
                 className="bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300"
               >
-                <a href="mailto:rafly.asyraf9011@gmail.com">
-                  Kirim Email <Mail className="ml-2 h-4 w-4" />
+                <a href="mailto:raflyasyraf123@gmail.com">
+                  Send Email <Mail className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button
                 asChild
                 className="border border-cyan-400/40 bg-transparent text-cyan-100 transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-400/10"
               >
-                <a href="https://wa.me/6287819393004" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/6287819393004"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   WhatsApp <MessageCircle className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -306,7 +309,7 @@ function App() {
                 className="border border-cyan-400/40 bg-transparent text-cyan-100 transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-400/10"
               >
                 <a href="tel:087819393004">
-                  Telepon <Phone className="ml-2 h-4 w-4" />
+                  Telephone <Phone className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </div>

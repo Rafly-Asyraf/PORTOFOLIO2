@@ -47,7 +47,7 @@ function Navbar() {
     >
       <div className="logo">
         <h1 className="text-2xl font-semibold tracking-tight text-slate-50">
-          portofolio
+          Portfolio
         </h1>
       </div>
       <AnimatePresence>
@@ -91,7 +91,7 @@ function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="relative text-sm font-medium text-slate-50 transition duration-200 ease-in-out hover:text-cyan-300 md:after:absolute md:after:-bottom-1 md:after:left-0 md:after:h-[2px] md:after:w-0 md:after:bg-cyan-400 md:after:transition-all md:after:duration-300 md:hover:after:w-full"
           >
-            Kontak
+            Contact
           </a>
         </li>
         <li className="w-full md:hidden">

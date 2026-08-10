@@ -10,7 +10,7 @@ function Footer() {
         <div className="space-y-3">
           <h2 className="text-lg font-semibold text-slate-50">Portfolio</h2>
           <p className="text-sm leading-relaxed text-slate-400">
-            Terbuka untuk kolaborasi dalam pengembangan produk web modern berstandar tinggi.
+            Open for collaboration on building modern, high-standard web products.
           </p>
         </div>
 
@@ -32,13 +32,13 @@ function Footer() {
               href="#project" 
               className="relative text-slate-400 transition duration-300 ease-out hover:text-cyan-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
             >
-              Project
+              Projects
             </a>
             <a 
               href="#contact" 
               className="relative text-slate-400 transition duration-300 ease-out hover:text-cyan-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
             >
-              Kontak
+              Contact
             </a>
           </nav>
 
@@ -46,7 +46,6 @@ function Footer() {
             {[
               { href: "#", icon: "ri-github-fill", label: "GitHub" },
               { href: "#", icon: "ri-instagram-fill", label: "Instagram" },
-              { href: "#", icon: "ri-reddit-fill", label: "Reddit" },
               { href: "#", icon: "ri-youtube-fill", label: "YouTube" },
             ].map((social) => (
               <Button
@@ -65,7 +64,7 @@ function Footer() {
       </div>
 
       <div className="space-y-4 border-t border-slate-800/50 pt-6 text-center text-xs text-slate-500">
-        <p>Dibangun dengan fokus pada kualitas — React, Vite, Tailwind CSS, TypeScript</p>
+        <p>Built with quality and detail in mind. — React, Vite, Tailwind CSS, TypeScript</p>
         <p>© 2026 Muhammad Rafly Asyraf. All rights reserved.</p>
       </div>
     </footer>
