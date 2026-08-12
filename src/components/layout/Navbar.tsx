@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 function getMenuClass(isOpen: boolean): string {
   const baseClass =
@@ -50,14 +50,14 @@ function Navbar() {
           Portfolio
         </h1>
       </div>
-      <AnimatePresence>
-        <motion.ul
-          className={getMenuClass(menuOpen)}
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-        >
+      <motion.ul
+        className={getMenuClass(menuOpen)}
+        initial={false}
+        animate={{
+          y: menuOpen ? 0 : -12,
+        }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+      >
         <li>
           <a
             href="#home"
@@ -104,8 +104,8 @@ function Navbar() {
             </a>
           </Button>
         </li>
-        </motion.ul>
-      </AnimatePresence>
+      </motion.ul>
+
       <div className="flex items-center gap-3">
         <Button
           asChild
