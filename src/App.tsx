@@ -89,7 +89,7 @@ function renderProjectCard(proyek: Project) {
           className="w-full bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.3)] transition duration-200 ease-in-out hover:scale-[1.03] hover:bg-cyan-300"
         >
           <a href={proyek.link} target="_blank" rel="noopener noreferrer">
-            Lihat Situs <ArrowUpRight className="ml-2 h-4 w-4" />
+            View Website <ArrowUpRight className="ml-2 h-4 w-4" />
           </a>
         </Button>
       </CardFooter>
@@ -130,7 +130,7 @@ function App() {
               className="bg-cyan-400 text-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition duration-200 ease-in-out hover:scale-[1.05] hover:bg-cyan-300"
             >
               <a
-                href="/assets/Muhammad-Rafly-Asyraf-CV-ATS.pdf"
+                href="/assets/Muhammad-Rafly-Asyraf-CV-ATS En.pdf"
                 download="Muhammad Rafly Asyraf CV.pdf"
               >
                 Download CV <Download className="ml-2 h-4 w-4" />
