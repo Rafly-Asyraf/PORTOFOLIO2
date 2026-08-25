@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import {motion } from "motion/react";
+import { motion } from "motion/react";
 
 function getMenuClass(isOpen: boolean): string {
   const baseClass =
-    "menu flex items-center gap-6 md:static md:translate-x-0 md:opacity-100 md:pointer-events-auto md:bg-transparent md:border-transparent transition-all duration-200 ease-in-out";
+    "menu flex items-center gap-6 transition-all duration-200 ease-in-out md:static md:translate-x-0 md:opacity-100 md:pointer-events-auto md:items-center md:justify-center";
 
   const mobileState = isOpen
-    ? "fixed inset-x-0 top-16 opacity-100 pointer-events-auto"
-    : "fixed inset-x-0 top-12 opacity-0 pointer-events-none";
+    ? "fixed inset-x-0 top-16 z-40 opacity-100 pointer-events-auto"
+    : "fixed inset-x-0 top-12 z-40 opacity-0 pointer-events-none md:pointer-events-auto";
 
   const mobileStyle =
-    "flex-col rounded-2xl bg-[#0f172a] px-6 py-5 backdrop-blur-md md:flex-row md:rounded-none md:bg-transparent md:px-0 md:py-0 md:shadow-none";
+    "flex-col rounded-2xl bg-[#0f172a] px-6 py-5 backdrop-blur-md md:flex-row md:rounded-none md:bg-transparent md:backdrop-blur-none md:px-0 md:py-0 md:my-0 md:shadow-none";
 
   return `${baseClass} ${mobileStyle} ${mobileState}`;
 }
@@ -21,22 +21,21 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div
-      className="navbar flex items-center justify-between py-4 transition duration-200 ease-in-out rounded-full from-cyan-500/10 via-transparent to-cyan-500/10 px-4 backdrop-blur-md"
-    >
+    <div className="navbar sticky top-0 z-50 flex items-center rounded-b-lg justify-between border-b border-cyan-400/10 bg-[#0b1b2b]/75 px-4 py-3 backdrop-blur-md transition duration-200 ease-in-out">
       <div className="logo">
         <h1 className="text-2xl font-semibold tracking-tight text-slate-50">
           Portfolio
         </h1>
       </div>
-        <motion.ul
-          className={getMenuClass(menuOpen)}
-          initial={false}
-          animate={{
-            y: menuOpen ? 0 : -12,
-          }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-        >
+
+      <motion.ul
+        className={getMenuClass(menuOpen)}
+        initial={false}
+        animate={{
+          y: menuOpen ? 0 : -12,
+        }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+      >
         <li>
           <a
             href="#home"
@@ -46,6 +45,7 @@ function Navbar() {
             Home
           </a>
         </li>
+
         <li>
           <a
             href="#about"
@@ -55,6 +55,7 @@ function Navbar() {
             About
           </a>
         </li>
+
         <li>
           <a
             href="#project"
@@ -64,6 +65,7 @@ function Navbar() {
             Project
           </a>
         </li>
+
         <li>
           <a
             href="#contact"
@@ -73,6 +75,7 @@ function Navbar() {
             Contact
           </a>
         </li>
+
         <li className="w-full md:hidden">
           <Button
             asChild
@@ -83,7 +86,7 @@ function Navbar() {
             </a>
           </Button>
         </li>
-        </motion.ul>
+      </motion.ul>
 
       <div className="flex items-center gap-3">
         <Button
@@ -92,13 +95,18 @@ function Navbar() {
         >
           <a href="#contact">Hire Me</a>
         </Button>
+
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
           className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0f172a]/70 text-slate-50 transition duration-200 ease-in-out hover:scale-[1.05] hover:border-cyan-400 hover:text-cyan-300 md:hidden"
           aria-label="Toggle navigation"
         >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {menuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
     </div>

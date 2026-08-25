@@ -109,6 +109,9 @@ import Proyek2 from "/assets/proyek/furnitool.png";
 import Proyek3 from "/assets/proyek/woysplitbill.png";
 import Proyek4 from "/assets/proyek/luxora.png";
 import Proyek5 from "/assets/proyek/uangku.png";
+import Proyek6 from "/assets/proyek/kreasi-aplikasi.png";
+
+
 
 // List of projects to render in the project section
 export const listProyek: Project[] = [
@@ -156,5 +159,14 @@ export const listProyek: Project[] = [
     tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI", "Chart.js", "Radix UI"],
     dad: "500",
     link: "https://uangku-neon.vercel.app/",
+  },
+  {
+    id: 6,
+    gambar: Proyek6,
+    nama: "Kreasi Aplikasi National",
+    desk: "A modern, responsive company profile built during my internship to showcase corporate services and business highlights.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn/UI"],
+    dad: "500",
+    link: "https://kreasi-aplikasi-showcase.vercel.app/",
   },
 ];
