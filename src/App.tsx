@@ -143,12 +143,12 @@ function App() {
               <a href="#project">View Portfolio</a>
             </Button>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 grid-cols-2">
             <Card className="border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 via-[#0f172a] to-[#0b1224] text-slate-50 shadow-[0_0_0_rgba(6,182,212,0)] transition duration-200 ease-in-out hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(6,182,212,0.2)]">
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">7+</CardTitle>
                 <CardDescription className="text-slate-400">
-                  Completed project
+                  Completed Projects
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -156,7 +156,7 @@ function App() {
               <CardHeader className="p-4">
                 <CardTitle className="text-3xl">1+</CardTitle>
                 <CardDescription className="text-slate-400">
-                  years of experience
+                  Years of Experience
                 </CardDescription>
               </CardHeader>
             </Card>
